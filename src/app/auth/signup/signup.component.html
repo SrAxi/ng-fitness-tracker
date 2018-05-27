@@ -49,7 +49,9 @@
       #agreeInput="ngModel">Agree to Terms & Conditions.
     </mat-checkbox>
     <mat-error *ngIf="agreeInput.hasError('required')">You have to agree to the Terms & Conditions.</mat-error>
-    <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="signupForm.invalid">Submit</button>
-    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
+            [disabled]="signupForm.invalid">Submit
+    </button>
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
   </form>
 </section>
